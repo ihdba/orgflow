@@ -1,0 +1,24 @@
+{% extends 'portal/base.html' %}
+{% load static %}
+{% block content %}
+     <h1 class="title">Units</h1>
+
+     <div class="unit_container">
+          {% for unit in units  %}
+     
+               <div class="unit_card">
+                    <h3 class="card_title"> {{ unit.name }}</h3>
+                    
+                    <p class="card_location">Location: {{ unit.location }}</p>
+                    <p class="card_description">Description: {{ unit.description }}</p>
+                    {% if unit.parent %}
+                         <p class="card_manager">Manager: {{ unit.parent}}</p>
+                    {% endif %}
+                    
+               </div>
+               
+          {% endfor %}
+     </div>
+    
+
+{% endblock %}

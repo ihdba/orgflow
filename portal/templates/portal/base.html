@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %} OrgFlow {% endblock %}
+    </title>
+
+    {% comment %} BOXICONS {% endcomment %}
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet" >
+
+      {% comment %} Custom css for all pages {% endcomment %}
+      <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+</head>
+<body>
+    
+    {% include "portal/navbar.html" %}
+    
+    {% block content %}
+    
+    {% endblock content %}
+
+
+
+    {% comment %} custom js {% endcomment %}
+    <script src=" {% static 'js/custom.js' %} "></script>
+</body>
+</html>

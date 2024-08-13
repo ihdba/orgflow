@@ -1,0 +1,26 @@
+{% extends 'portal/base.html' %}
+{% load static %}
+{% block content %}
+     <h1 class="title">Staff</h1>
+     <a class="sec-link" href="{% url 'add_staff'%}">Add new staff</a>
+
+     <div class="unit_container">
+          {% for emp in emps  %}
+     
+               <div class="unit_card">
+                    <h3 class="card_title"> {{ emp.unit }}</h3>
+                    
+                    <p class="names">{{ emp.fname }} {{ emp.lname }}</p>
+                    <p>position:{{ emp.position}}</p>
+                    
+                    {% if emp.manager %}
+                         <p>Manager: {{ emp.manager }}</p>
+                    {% endif %}
+                    
+               </div>
+               
+          {% endfor %}
+     </div>
+    
+
+{% endblock %}

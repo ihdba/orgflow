@@ -1,0 +1,21 @@
+
+
+-- install django-extensions
+pip install django-extensions
+
+-- add the django_extensions application to the INSTALLED_APPS setting
+
+  'django_extensions',
+
+
+
+
+on_delete= oprtions(CASCADE, SET_NULL
+
+
+When CASCADE then all the records where that Foreign key is refered will be deleted
+In case when you want to keep the recods, while the foreign key is deleted, 
+you can set on_delete=models.SET_NULL, null=True).
+This way the records will be not deleted but the foreign key column will show null value.
+It can be OK to keep record sfor historical reasons or economical
+

@@ -1,0 +1,225 @@
+
+
+orgflow
+
+   
+-- create virtual environment
+
+python3 -m venv devenv
+
+-- activate virtual environment
+source devenv/bin/activate
+
+-- install django 
+
+pip install django
+
+
+-- evt upgrade pip
+pip install --upgrade pip
+
+
+-- install postgres connector
+
+pip install psycopg2
+
+-- create django project
+
+django-admin startproject orgflow .
+
+-- Create environmental variable to keep sensitive data 
+pip install python-dotenv
+touch .env
+echo .env >> .gitignore
+
+
+-- Add to setting.py import of the .env file
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+
+-- Create PostgreSQL database and admininstrator user
+psql (to start client) /* in a new terminal window, not in the virtual env */
+create database orgflow;
+create user adminorgflow with encrypted password 'adminorgflow';  
+grant all privileges on database orgflow to adminorgflow;
+
+
+
+DB_NAME=orgflow
+DB_USER=adminorgflow
+PWD=adminorgflow
+DB_PORT=5432
+DJ_SECRET_KEY='django-insecure-nsgv!i%kickpz!xt^le%nbnnsljh)o9a**n7bp^*y!b(04ci&b'
+~                                                                                     
+
+-- Edit in setting.py
+-- Replace values with os.getenv('CAR_NAME') from .env file
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('PWD'),
+        'HOST': '127.0.0.1', 
+        'PORT': os.getenv('DB_PORT'),
+    }
+}
+
+
+-- Change the SECRET_KEY in setting.py with the .env that holds the secret_key value
+SECRET_KEY = os.getenv('DJ_SECRET_KEY')
+
+
+-- Create superuser for the database
+
+-- first migrate to the DB engine that will be used,
+python manage.py migrate
+-- then run
+python manage.py createsuperuser ioannis/adminorgflow
+
+
+
+-- create folder apps to host the apps that will be creted
+
+mkdir apps 
+
+-- create subfolder 'portal' in the apps folder
+
+mkdir apps/portal
+
+-- create app  'portal' to be the main entrance to your site
+
+python manage.py startapp portal apps/portal
+
+
+-- add 'apps.portal' to the installed_apps list in setting.py
+...
+...
+'apps.portal',
+
+
+-- edit the portal/apps.py 
+...
+name = 'apps.portal'
+
+-- edit TEMPLATES in settings.py to search in each app for temlates folder
+
+'DIRS': [BASE_DIR / 'templates'],
+
+
+-- each new app will have templates/app_name folder to keep the .html sites
+
+-- create templates/portal/base.html in portal app to be the main template for the site
+-- all other html pages will extend portal/base.html
+
+
+
+-- create urls.py file in each new app 
+
+-- apps/portal/urls.py
+
+
+-- change the projects urls to include the apps.portal.urls file
+
+-- in the BASE_DIR (root folder where your manage.py file is) create two forlders 'media' and 'static'
+-- to hold media files and custom css and js files (in STATIC folder css and js, as well as the images -- used for the site)
+
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+
+-- add the custom css and js to your base.html file if needed
+
+<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+<script src="{% static 'js/custom.js' %}"></script>
+
+
+-- If another style library is used, like TAILWIDN or BOOTSTRAP or FONT AWESOME
+
+-- tailwind
+<script src="https://cdn.tailwindcss.com"></script>
+
+-- bootstrap
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+-- font awesome
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+
+App namespace 
+in urls.py 
+app_name = "app_name"
+
+refer to the app via {% url 'app_name:page_name' %}
+
+
+-- if files and images will be downloaded or uploaded, install Pillow library
+pip install Pillow
+
+
+
+
+
+
+## RESET MIGRATIONS
+What eventually worked was running this command:
+
+python manage.py migrate --fake myappname zero
+This reset all migrations (to the zeroth state)
+
+This followed by :
+
+python manage.py migrate myappname
+created the tables for me.
+
+If you do not want to roll back to the initial(zero) state but say to the migration number 0005(the last migration that worked), you can instead do this:
+
+python manage.py migrate --fake myappname 0005
+And then proceed with the actual migrate:
+
+python manage.py migrate myappname
+
+
+
+
+
+
+
+ / ============ TO DO ===========
+
+app crm
+
+
+User regiseter
+User rights
+
+ User authentication
+
+ https://learndjango.com/tutorials/django-login-and-logout-tutorial
+
+
+
+
+
+
+
+
+
+
+ #recursive queries
+ # https://stackabuse.com/recursive-model-relationships-in-django/
