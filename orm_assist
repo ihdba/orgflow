@@ -19,3 +19,99 @@ you can set on_delete=models.SET_NULL, null=True).
 This way the records will be not deleted but the foreign key column will show null value.
 It can be OK to keep record sfor historical reasons or economical
 
+
+
+create in tehh app a folder named scripts and within the scripts folder create python file app_scripts.py
+
+create __init__.py script too within scripts folder.
+
+
+
+
+
+    # Create instance of the model 
+    # restaurant = Restaurant()
+    # restaurant.name = 'My Italian Restaurant'
+    # restaurant.latitude = 50.2
+    # restaurant.longitude = 50.2
+    # restaurant.date_opened = timezone.now()
+    # restaurant.restaurant_type = Restaurant.TypeChoices.ITALIAN
+    
+    # save the data
+    # restaurant.save()
+    
+    # Retrieve data
+    
+    #restaurants = Restaurant.objects.all()
+    
+    #restaurant = Restaurant.objects.first() # get only the first record
+    #print(restaurant)
+    
+    # print the sql statements
+    #print(connection.queries)
+    
+    #You can also use in c,d 
+    # python mamage.py shell_plus --print-sql  $ this command will bring shell environment and then you can run 
+    # THis way we can see formatted SQL 
+#     >>> Restaurant.objects.first()
+# SELECT "orm_restaurant"."id",
+#        "orm_restaurant"."name",
+#        "orm_restaurant"."website",
+#        "orm_restaurant"."date_opened",
+#        "orm_restaurant"."latitude",
+#        "orm_restaurant"."longitude",
+#        "orm_restaurant"."restaurant_type"
+#   FROM "orm_restaurant"
+#  ORDER BY "orm_restaurant"."id" ASC
+#  LIMIT 1
+# Execution time: 0.001043s [Database: default]
+# <Restaurant: My Italian Restaurant>
+# >>> 
+
+
+
+
+
+
+
+    # Create instance of the model 
+    # restaurant = Restaurant()
+    # restaurant.name = 'My Italian Restaurant'
+    # restaurant.latitude = 50.2
+    # restaurant.longitude = 50.2
+    # restaurant.date_opened = timezone.now()
+    # restaurant.restaurant_type = Restaurant.TypeChoices.ITALIAN
+    
+    # save the data
+    # restaurant.save()
+    
+    # Retrieve data
+    
+    #restaurants = Restaurant.objects.all()
+    
+    # restaurant = Restaurant.objects.first()
+    # # or
+    # restaurant = Restaurant.objects.all()[0] # returns the first record without the ORDER BY in SQL, just limit 1
+    # print(restaurant)
+    
+    
+    
+    # We can also use the create method to create new records/objects
+    
+    # Restaurant.objects.create(
+    #     name = "Shiva",
+    #     date_opened = timezone.now(),
+    #     restaurant_type = Restaurant.TypeChoices.INDIAN,
+    #     latitude = 53.3,
+    #     longitude = 55.7
+    # )
+    
+    
+    #print("All the records ", Restaurant.objects.all())
+    
+    # count the records
+    #print("Count the records: ", Restaurant.objects.count())
+    
+    # print the last record
+    #print("Last record: ", Restaurant.objects.last())
+    

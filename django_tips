@@ -1,0 +1,54 @@
+
+
+############     Arguments for manage.py 
+cleanup                     -- remove old data from the database
+compilemessages             -- compile .po files to .mo for use with gettext
+createcachetable            -- creates table for SQL cache backend
+createsuperuser             -- create a superuser
+dbshell                     -- run command-line client for the current database
+diffsettings                -- display differences between the current settings and Django defaults
+dumpdata                    -- output contents of database as a fixture
+flush                       -- execute 'sqlflush' on the current database
+inspectdb                   -- output Django model module for tables in database
+loaddata                    -- install the named fixture(s) in the database
+makemessages                -- pull out all strings marked for translation
+reset                       -- executes 'sqlreset' for the given app(s)
+runfcgi                     -- run this project as a fastcgi
+runserver                   -- start a lightweight web server for development
+shell                       -- run a Python interactive interpreter. Tries to use IPython, if it's avai
+sql                         -- print the CREATE TABLE statements for the given app(s)
+sqlall                      -- print the CREATE TABLE, CREATE INDEX and custom statements for the given
+sqlclear                    -- print the DROP TABLE statements for the given app(s)
+sqlcustom                   -- print the custom table-modifying SQL statements for the given app(s)
+sqlflush                    -- print the SQL statements required to return all tables to installation s
+sqlindexes                  -- print the CREATE INDEX statements for the given app(s)
+sqlreset                    -- print the DROP TABLE and CREATE TABLE statements for the given app(s)
+sqlsequencereset            -- print the SQL statements for resetting sequences for the given app(s)
+startapp                    -- create Django app directory in this project's directory
+startproject                -- create a Django project directory structure for a given project name
+syncdb                      -- create database tables for apps in INSTALLED_APPS where required
+test                        -- run the test suite for the specified app, or the entire site
+testserver                  -- run a development server with data from the given fixture(s)
+validate                    -- validate all installed modules
+admin_generator             jango]                      runscript
+changepassword              jango_extensions]           runserver_plus
+check                       list_model_info             sendtestemail
+clean_pyc                   list_signals                set_default_site
+clear_cache                 mail_debug                  set_fake_emails
+clearsessions               makemigrations              set_fake_passwords
+collectstatic               managestate                 shell_plus
+compile_pyc                 merge_model_instances       show_template_tags
+create_command              migrate                     show_urls
+create_jobs                 notes                       showmigrations
+create_template_tags        ontenttypes]                sqlcreate
+delete_squashed_migrations  optimizemigration           sqldiff
+describe_form               pipchecker                  sqldsn
+drop_test_database          print_settings              sqlmigrate
+dumpscript                  print_user_for_session      squashmigrations
+essions]                    raise_test_exception        sync_s3
+export_emails               remove_stale_contenttypes   syncdata
+find_template               reset_db                    taticfiles]
+findstatic                  reset_schema                unreferenced_files
+generate_password           runjob                      update_permissions
+generate_secret_key         runjobs                     uth]
+graph_models                runprofileserver            validate_templates

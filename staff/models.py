@@ -28,6 +28,7 @@ class Staff(models.Model):
     
     fname = models.CharField(max_length=50)
     lname = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='assets/images/staff/', default='assets/images/staff/avatar1.jpg', blank=True)
     manager = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE,related_name='employee')
     unit = models.ForeignKey(Unit, on_delete=models.CASCADE)
     

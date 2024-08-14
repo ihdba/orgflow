@@ -3,16 +3,16 @@
 {% block content %}
      <h1 class="title">Units</h1>
 
-     <div class="unit_container">
+     <div class="container">
           {% for unit in units  %}
      
-               <div class="unit_card">
+               <div class="card">
                     <h3 class="card_title"> {{ unit.name }}</h3>
                     
-                    <p class="card_location">Location: {{ unit.location }}</p>
-                    <p class="card_description">Description: {{ unit.description }}</p>
+                    <p class="p_card">Location: {{ unit.location }}</p>
+                    <p class="p_card">Description: {{ unit.description }}</p>
                     {% if unit.parent %}
-                         <p class="card_manager">Manager: {{ unit.parent}}</p>
+                         <p class="p_card">Manager: {{ unit.parent}}</p>
                     {% endif %}
                     
                </div>

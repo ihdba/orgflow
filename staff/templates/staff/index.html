@@ -4,17 +4,19 @@
      <h1 class="title">Staff</h1>
      <a class="sec-link" href="{% url 'add_staff'%}">Add new staff</a>
 
-     <div class="unit_container">
+     <div class="container">
           {% for emp in emps  %}
      
-               <div class="unit_card">
+               <div class="card">
                     <h3 class="card_title"> {{ emp.unit }}</h3>
-                    
-                    <p class="names">{{ emp.fname }} {{ emp.lname }}</p>
+                    <div class="card_image">
+                         <img src="{% get_media_prefix %}{{ emp.image }}" alt=" {{ emp.lname }}">
+                    </div>
+                    <p class="p_card names">{{ emp.fname }} {{ emp.lname }}</p>
                     <p>position:{{ emp.position}}</p>
                     
                     {% if emp.manager %}
-                         <p>Manager: {{ emp.manager }}</p>
+                         <p class="p_card">Manager: {{ emp.manager }}</p>
                     {% endif %}
                     
                </div>
