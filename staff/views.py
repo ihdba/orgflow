@@ -36,3 +36,22 @@ def add_staff(request):
 
     return render(request, 'staff/add_staff.html', {'form': form})
 
+
+
+
+# Detail view of Staff with undelying emps
+
+def staff_detail(request, pk):
+    
+    emp = Staff.objects.get(id=pk)
+    
+    
+    sub_emps = Staff.objects.filter(manager=pk)
+    
+    ctx = {
+        'emp': emp,
+        'sub_emps': sub_emps,
+    }
+    
+    return render(request, 'staff/staff_detail.html', ctx)
+    
