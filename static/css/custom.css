@@ -188,3 +188,15 @@ body {
 .names {
   text-transform: uppercase;
 }
+
+
+
+.details {
+    margin: auto;
+    background-color: var(--background_secondary);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-grow: 1;
+    gap: 20px;
+}

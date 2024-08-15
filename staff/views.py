@@ -35,3 +35,4 @@ def add_staff(request):
         form = StaffForm()
 
     return render(request, 'staff/add_staff.html', {'form': form})
+

@@ -1,0 +1,45 @@
+{% extends 'portal/base.html' %}
+{% load static %}
+{% block content %}
+     <h1 class="title">Unit Detail</h1>
+
+     <div class="container">
+         
+               <div class="card">
+                    <h3 class="card_title"> {{ unit.name }}</h3>
+                    
+                    <p class="p_card">Location: {{ unit.location }}</p>
+                    <p class="p_card">Description: {{ unit.description }}</p>
+                    {% if unit.parent %}
+                         <p class="p_card">Manager: {{ unit.parent}}</p>
+                    {% endif %}
+                    
+               </div>
+     </div>
+     <h1 class="title">Underlying Units</h1>
+     {% if sub_units %}
+     <div class="details">
+          {% for sub_unit in sub_units %}
+               
+               <div class="card">
+                    <h3 class="card_title"> {{ sub_unit.name }}</h3>
+                    
+                    <p class="p_card">Location: {{ sub_unit.location }}</p>
+                    <p class="p_card">Description: {{ sub_unit.description }}</p>
+                    {% if sub_unit.parent %}
+                         <p class="p_card">Manager: {{ sub_unit.parent}}</p>
+                    {% endif %}
+                    
+               </div>
+               
+               {% endfor %}
+
+     </div>
+     {% else %}
+          <h2>No underlying units for this department.</h2>
+     {% endif %}
+               
+  
+    
+
+{% endblock %}

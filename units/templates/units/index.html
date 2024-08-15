@@ -7,7 +7,7 @@
           {% for unit in units  %}
      
                <div class="card">
-                    <h3 class="card_title"> {{ unit.name }}</h3>
+                    <h3 class="card_title"><a href="{% url 'unit_detail' unit.id %}">{{ unit.name }}</a></h3>
                     
                     <p class="p_card">Location: {{ unit.location }}</p>
                     <p class="p_card">Description: {{ unit.description }}</p>
