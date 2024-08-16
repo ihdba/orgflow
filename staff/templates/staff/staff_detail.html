@@ -10,7 +10,7 @@
                          <img src="{% get_media_prefix %}{{ emp.image }}" alt=" {{ emp.lname }}">
                     </div>
                     <p class="p_card names">{{ emp.fname }} {{ emp.lname }}</p>
-                    <p>position:{{ emp.position}}</p>
+                    <p><b>position:</b>{{ emp.position}}</p>
                     
                     {% if emp.manager %}
                          <p class="p_card">Manager: {{ emp.manager }}</p>
@@ -32,7 +32,7 @@
                         <img src="{% get_media_prefix %}{{ sub_emp.image }}" alt=" {{ sub_emp.lname }}">
                     </div>
                     <p class="p_card names">{{ sub_emp.fname }} {{ sub_emp.lname }}</p>
-                    <p>position:{{ emp.position}}</p>
+                    <p><b>position:</b>{{ emp.position}}</p>
                     
                     {% if emp.manager %}
                         <p class="p_card">Manager: {{ sub_emp.manager }}</p>

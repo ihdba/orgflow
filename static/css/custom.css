@@ -7,7 +7,7 @@
     /* bacground secondary colors */
     --chromealuminium: #A8A9AD; /* Chrome aluminium */
 
-
+    --stormygray: #3A3B3C;
     --seablue: #C2DFFF; /* Sec bcc */
     --water: #EBF4FA; /* Prim bcc */
 
@@ -42,7 +42,8 @@
 }
 
 body {
-    background-color: var(--water);
+    background-color: #F5F5F5;
+    background-color: canvas;
     color: var(--blackblue);
     font-family: var(--ff);
     font-size: var(--fs);
@@ -105,6 +106,13 @@ body {
     text-align: center;
 }
 
+a {
+    text-decoration: none;
+    color: var(--blackblue);
+}
+a:hover {
+    color: var(--stormygray);
+}
 
 /*=============== CONTAINER =====================*/
 
@@ -119,6 +127,7 @@ body {
 }
 
 .card {
+    background-color: #E5E4E2;
     border: 1px solid #B6B6B6 ;
     min-width: 350px;
     max-width: 350px;
@@ -143,12 +152,14 @@ body {
 
 .card_title {
     color: black;
-    /* background-color: #F5DEB3; */
+    background-color: #BCC6CC;
     width: 100%;
     text-align: center;
-    border-radius: 10px;
-    margin-bottom: 10px;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     font-weight: var(--fb);
+
 }
 
 

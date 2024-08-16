@@ -1,0 +1,24 @@
+{% extends 'portal/base.html' %}
+{% load static %}
+{% block content %}
+     <h1 class="title">Projects</h1>
+    <a href="{% url 'add_project' %}">Add New Project</a>
+
+    <div class="container">
+     {% for p in projects  %}
+
+          <div class="card">
+               <h3 class="card_title">{{ p.name }}</h3>
+               <p class="p_card">{{ p.start_date }}</p>
+               <p class="p_card">{{ p.status }}</p>
+               <p class="p_card">{{ p.phase }}</p>
+               <p class="p_card" style="color:{{ p.health }}">{{ p.health }}</p>
+               <p class="p_card">Project Manager: {{ p.manager }}</p>
+               <p class="p_card">Unit: {{ p.unit }}</p>
+          </div>
+          
+     {% endfor %}
+</div>
+
+
+{% endblock %}

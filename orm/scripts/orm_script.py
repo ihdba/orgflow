@@ -10,14 +10,14 @@ from django.db import connection # to print sql statements
 
 def run():
     
-    restaurant = Restaurant.objects.first()
+    restaurant = Restaurant.objects.last()
     user = User.objects.first()
     
     
     Rating.objects.create(
         user=user, 
         restaurant=restaurant, 
-        rating=3)
+        rating=4)
     
     
     

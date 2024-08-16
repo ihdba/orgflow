@@ -33,13 +33,17 @@ class Staff(models.Model):
     unit = models.ForeignKey(Unit, on_delete=models.CASCADE)
     
     
-    class Meta:
-        abstract = True
-    def lower_name(self):
-        return self.lower_data['fname', 'lname'].lower()
+
+    
+    # class Meta:
+    #     abstract = True
+        
+    # def lower_name(self):
+    #     return self.lower_data['fname', 'lname'].lower()
     
     def __str__(self):
-        return f'{self.fname}{self.lname}'
+        return f'{self.fname} {self.lname}'
+
 
     
     

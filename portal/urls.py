@@ -12,4 +12,5 @@ urlpatterns = [
      path('staff/', include('staff.urls')),
      path('units/', include('units.urls')),
      path('orm/', include('orm.urls')),
+     path('projects/', include('projects.urls')),
 ]
